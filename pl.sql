@@ -1,4 +1,4 @@
--- Questão 1
+/* Questão 1 */
 
 Select Cod_Profissional_Cinema,
        Count (Cod_Papel)                     As Total,
@@ -8,7 +8,7 @@ Select Cod_Profissional_Cinema,
 From   Participacao
 Group  By Cod_Profissional_Cinema; 
 
--- Questão 2
+/* Questão 2 */
 Create Table Ascendentes
   (
      Id   Number,
@@ -17,7 +17,7 @@ Create Table Ascendentes
      Constraint Ascendentes_Constraint Unique (Id)
   ); 
 
----- Preenchendo a tabela Ascendentes.
+-- Preenchendo a tabela Ascendentes.
 Insert Into Ascendente
 Values      ( 1,
              'Antônia Sophia Olivia Sales',
@@ -123,7 +123,7 @@ Values      ( 21,
              'Alexandre Castro',
              9 ); 
 
--- Questão 3
+/* Questão 3 */
 Select Level As Nivel,
        Id,
        Name,
@@ -132,7 +132,7 @@ From   Ascendentes
 Start With Id = 1
 Connect By Prior Id = Mae; 
 
--- Questão 4
+/* Questão 4 */
 Select Level                    As Nivel,
        Id,
        Nome,
@@ -143,11 +143,11 @@ From   Ascendentes
 Start With Id In 1
 Connect By Prior Id = Mae 
 
--- Questão 5
+/* Questão 5 */
 Alter Table Profissional_Cinema
   Add (Atuante Varchar (30) ); 
 
--- Questão 6
+/* Questão 6 */
 Create Or Replace Procedure Classificacao (Entry_Cod_Profissional_Cinema In Profissional_Cinema.Cod_Profissional_Cinema%Type)
 Is
   V_Quantidade_Locacao Locacao.Cod_Filme%Type;
@@ -176,7 +176,7 @@ End Classificacao;
 -- Executando a procedure Classificacao.
 Exec Classificacao(1);
 
--- Questão 7
+/* Questão 7 */
 -- Descobrindo a média
 Select Avg(Preco_Aplicado)
 From   Locacao; 
@@ -206,7 +206,7 @@ Exec Muda_Preco (13);
 -- Rodando a procedure Muda_Preco para os filmes com filme que possuem menos de 49 locações.
 Exec Muda_Preco (8);
 
--- Questão 8
+/* Questão 8 */
 -- Criando a procedure Deletar_Profissional.
 Create Or Replace Procedure Deletar_Profissional (Entry_Cod_Profissional_Cinema Number)
 Is
