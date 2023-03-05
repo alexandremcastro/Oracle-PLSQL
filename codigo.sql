@@ -1,4 +1,3 @@
-/* Questão 1 */
 Select Cod_Profissional_Cinema,
        Count (Cod_Papel)                     As Total,
        Rank ()
